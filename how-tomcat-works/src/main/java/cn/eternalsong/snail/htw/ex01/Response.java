@@ -39,6 +39,8 @@ public class Response {
         try{
             File file = new File(HttpServer.WEB_ROOT,request.getUri());
             if(file.exists()){
+                // write the http reponse header
+                output.write(HttpServer.HEADER.getBytes());
                 fis = new FileInputStream(file);
                 int ch = fis.read(bytes,0,BUFFER_SIZE);
                 while(ch!=-1){

@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,9 +18,14 @@ import java.net.Socket;
  */
 public class HttpServer {
 
-    public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator + "how-tomcat-works" + File.separator + "src";
+    public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator + "how-tomcat-works" + File.separator + "src"+File.separator+"main"+File.separator+"resources";
 
     public static final String SHUTDOWN_COMMAND = "/SHUTDOWN";
+
+    public static final String HEADER = "HTTP/1.1 200 OK\r\n "
+            + "Content-Type: text/html\r\n"
+            + "Date"+new Date()+"\r\n"
+            + "\r\n";
 
     public static void main(String[] args) {
         HttpServer httpServer = new HttpServer();
