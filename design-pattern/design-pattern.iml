@@ -11,10 +11,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" name="Maven: tomcat:catalina:4.1.9" level="project" />
-    <orderEntry type="library" name="Maven: tomcat:bootstrap:4.0.6" level="project" />
-    <orderEntry type="library" name="Maven: tomcat:naming-resources:5.5.12" level="project" />
-    <orderEntry type="library" name="Maven: tomcat:naming-common:5.0.28" level="project" />
   </component>
 </module>
