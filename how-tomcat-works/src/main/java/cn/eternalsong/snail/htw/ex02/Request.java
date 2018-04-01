@@ -18,32 +18,33 @@ import java.util.Map;
  * Time: 上午8:31
  * Description: Request 请求
  */
-public class Request implements ServletRequest{
+public class Request implements ServletRequest {
 
     private InputStream in;
     private String uri;
 
-    public Request(InputStream in){
+    public Request(InputStream in) {
         this.in = in;
     }
 
 
-    public String getUri(){
+    public String getUri() {
         return uri;
     }
 
     /**
      * 解析URI方法,取出请求报文中URI部分
+     *
      * @param requestString 请求报文字符串e
      * @return
      */
-    private String parseUri(String requestString){
-        int index1,index2;
+    private String parseUri(String requestString) {
+        int index1, index2;
         index1 = requestString.indexOf(' ');
-        if(index1 != -1){
-            index2 = requestString.indexOf(' ',index1 + 1);
-            if(index2 > index1){
-                return requestString.substring(index1, index2);
+        if (index1 != -1) {
+            index2 = requestString.indexOf(' ', index1 + 1);
+            if (index2 > index1) {
+                return requestString.substring(index1+1, index2);
             }
         }
         return null;
@@ -53,168 +54,139 @@ public class Request implements ServletRequest{
      * 解析方法
      * 读取请求报文,解析出对应的uri赋值到属性中
      */
-    public void parse(){
+    public void parse() {
         // Read a set of characters from the socket
         StringBuffer request = new StringBuffer(2048);
         int i;
         byte[] buffer = new byte[2048];
-        try{
+        try {
             i = in.read(buffer);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             i = -1;
         }
 
-        for (int j=0;j<i;j++){
-            request.append((char)buffer[j]);
+        for (int j = 0; j < i; j++) {
+            request.append((char) buffer[j]);
         }
         System.out.println(request.toString());
         uri = parseUri(request.toString());
     }
 
 
-
-    @Override
     public Object getAttribute(String s) {
         return null;
     }
 
-    @Override
     public Enumeration getAttributeNames() {
         return null;
     }
 
-    @Override
     public String getCharacterEncoding() {
         return null;
     }
 
-    @Override
     public void setCharacterEncoding(String s) throws UnsupportedEncodingException {
 
     }
 
-    @Override
     public int getContentLength() {
         return 0;
     }
 
-    @Override
     public String getContentType() {
         return null;
     }
 
-    @Override
     public ServletInputStream getInputStream() throws IOException {
         return null;
     }
 
-    @Override
     public String getParameter(String s) {
         return null;
     }
 
-    @Override
     public Enumeration getParameterNames() {
         return null;
     }
 
-    @Override
     public String[] getParameterValues(String s) {
         return new String[0];
     }
 
-    @Override
     public Map getParameterMap() {
         return null;
     }
 
-    @Override
     public String getProtocol() {
         return null;
     }
 
-    @Override
     public String getScheme() {
         return null;
     }
 
-    @Override
     public String getServerName() {
         return null;
     }
 
-    @Override
     public int getServerPort() {
         return 0;
     }
 
-    @Override
     public BufferedReader getReader() throws IOException {
         return null;
     }
 
-    @Override
     public String getRemoteAddr() {
         return null;
     }
 
-    @Override
     public String getRemoteHost() {
         return null;
     }
 
-    @Override
     public void setAttribute(String s, Object o) {
 
     }
 
-    @Override
     public void removeAttribute(String s) {
 
     }
 
-    @Override
     public Locale getLocale() {
         return null;
     }
 
-    @Override
     public Enumeration getLocales() {
         return null;
     }
 
-    @Override
     public boolean isSecure() {
         return false;
     }
 
-    @Override
+
     public RequestDispatcher getRequestDispatcher(String s) {
         return null;
     }
 
-    @Override
     public String getRealPath(String s) {
         return null;
     }
 
-    @Override
     public int getRemotePort() {
         return 0;
     }
 
-    @Override
     public String getLocalName() {
         return null;
     }
 
-    @Override
     public String getLocalAddr() {
         return null;
     }
 
-    @Override
     public int getLocalPort() {
         return 0;
     }

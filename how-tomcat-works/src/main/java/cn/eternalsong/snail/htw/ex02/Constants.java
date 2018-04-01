@@ -13,6 +13,8 @@ import java.util.Date;
 public class Constants {
     public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator + "how-tomcat-works" + File.separator + "src"+File.separator+"main"+File.separator+"resources";
 
+    public static final String CLASS_ROOT = System.getProperty("user.dir") + File.separator + "how-tomcat-works" + File.separator + "target"+File.separator+"classes";
+
     public static final String SHUTDOWN_COMMAND = "/SHUTDOWN";
 
     public static final String HEADER = "HTTP/1.1 200 OK\r\n "

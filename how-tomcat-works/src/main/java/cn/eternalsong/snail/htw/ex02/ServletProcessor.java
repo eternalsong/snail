@@ -25,37 +25,35 @@ public class ServletProcessor {
             // create a URLClassLoader
             URL[] urls = new URL[1];
             URLStreamHandler streamHandler = null;
-            File classPath = new File(Constants.WEB_ROOT);
+            File classPath = new File(Constants.CLASS_ROOT);
             // the forming of repository is taken from the
             // createClassLoader method in
             // org.apache.catalina.startup.ClassLoaderFactory
-            String repository =(new URL("file", null, classPath.getCanonicalPath() +
-                    File.separator)).toString() ;
+            String repository = (new URL("file", null, classPath.getCanonicalPath() +
+                    File.separator)).toString();
             // the code for forming the URL is taken from
             // the addRepository method in
             // org.apache.catalina.loader.StandardClassLoader.
             urls[0] = new URL(null, repository, streamHandler); // 第三个参数设置类型用于调用特定重载方法,避免编译器识别不出调用那个具体构造
             loader = new URLClassLoader(urls);
-        }
-        catch (IOException e) {
-            System.out.println(e.toString() );
+        } catch (IOException e) {
+            System.out.println(e.toString());
         }
         Class myClass = null;
         try {
-            myClass = loader.loadClass("servlet."+servletName);
+            myClass = loader.loadClass("cn.eternalsong.snail.htw.ex02.servlet."+servletName);
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.toString());
         }
-        catch (ClassNotFoundException e) {
-            System.out.println(e.toString());}
         Servlet servlet = null;
         try {
             servlet = (Servlet) myClass.newInstance();
             servlet.service((ServletRequest) request,
                     (ServletResponse) response);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
+            e.printStackTrace();
             System.out.println(e.toString());
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             System.out.println(e.toString());
         }
     }

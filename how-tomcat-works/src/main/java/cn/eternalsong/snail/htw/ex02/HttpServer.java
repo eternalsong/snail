@@ -44,6 +44,9 @@ public class HttpServer {
             OutputStream out = null;
 
             try {
+                socket = serverSocket.accept();
+                in = socket.getInputStream();
+                out = socket.getOutputStream();
                 // Create Request and parse
                 Request request = new Request(in);
                 request.parse();
