@@ -21,6 +21,13 @@ public class PrimitiveServlet implements Servlet {
         return null;
     }
 
+    /**
+     *  自定义Servlet的service方法
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         System.out.println("PrimitiveServlet start");
         PrintWriter out = response.getWriter();

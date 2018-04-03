@@ -17,6 +17,11 @@ import java.net.URLStreamHandler;
  * Description: Servlet 处理类
  */
 public class ServletProcessor {
+    /**
+     *  根据请求加载对应的Servlet类，反射调用service方法进行相应servlet处理
+     * @param request
+     * @param response
+     */
     public void process(Request request, Response response) {
         String uri = request.getUri();
         String servletName = uri.substring(uri.lastIndexOf("/") + 1);

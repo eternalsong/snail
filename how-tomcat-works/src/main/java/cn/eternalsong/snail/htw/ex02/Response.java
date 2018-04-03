@@ -27,6 +27,10 @@ public class Response implements ServletResponse {
         this.request = request;
     }
 
+    /**
+     *  发送静态资源
+     * @throws IOException
+     */
     public void sendStaticResource() throws IOException {
         byte[] bytes = new byte[BUFFER_SIZE];
         FileInputStream fis = null;

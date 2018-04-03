@@ -19,6 +19,10 @@ public class HttpServer {
 
     private boolean shutdown = false;
 
+    /**
+     * 应用主进程
+     * @param args
+     */
     public static void main(String[] args) {
         HttpServer httpServer = new HttpServer();
         System.out.println("server start");
@@ -27,6 +31,9 @@ public class HttpServer {
 
     }
 
+    /**
+     *  Http服务方法，循环等待请求，给出响应
+     */
     public void await(){
         ServerSocket serverSocket = null;
         int port = 8080;
