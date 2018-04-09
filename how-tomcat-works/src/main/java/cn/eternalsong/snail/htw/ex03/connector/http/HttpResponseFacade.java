@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * Time: 23:43
  * Description: HttpResponse 封装类
  */
-public class HttpResponseFacade {
+public class HttpResponseFacade implements ServletResponse{
     private HttpServletResponse response;
 
     public HttpResponseFacade(HttpResponse response) {

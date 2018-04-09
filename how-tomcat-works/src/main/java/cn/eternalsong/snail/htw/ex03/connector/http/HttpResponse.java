@@ -287,7 +287,7 @@ public class HttpResponse implements HttpServletResponse {
      *
      * @throws IOException
      */
-    public void sendStaticResoutce() throws IOException {
+    public void sendStaticResource() throws IOException {
         byte[] bytes = new byte[BUFFER_SIZE];
         FileInputStream fis = null;
         try {
@@ -456,6 +456,11 @@ public class HttpResponse implements HttpServletResponse {
         return null;
     }
 
+    /**
+     * 获取输出流对象，返回ResponseWriter对象，复写PrintWriter方法。每次输出手动刷新
+     * @return
+     * @throws IOException
+     */
     public PrintWriter getWriter() throws IOException {
         ResponseStream newStream = new ResponseStream(this);
         newStream.setCommit(false);
